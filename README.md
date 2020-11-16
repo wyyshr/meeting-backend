@@ -1,3 +1,3 @@
 ## 会议
 
-使用taro + typescript进行制作
+使用Nest.js进行制作
