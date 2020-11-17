@@ -35,8 +35,8 @@ export class VoteService {
     const id = parseInt(query.id)
     const voteContent = await this.voteRepository.findOne({id, isEnd: false});
     if(!voteContent.id) return {code: 0, success: false}
-    query.option == voteContent.option1 && await this.voteRepository.update(voteContent,{option1: voteContent.option1+1});
-    query.option == voteContent.option2 && await this.voteRepository.update(voteContent,{option2: voteContent.option2+1});
+    query.option == voteContent.option1 && await this.voteRepository.update(voteContent,{voteNum1: voteContent.voteNum1+1});
+    query.option == voteContent.option2 && await this.voteRepository.update(voteContent,{voteNum2: voteContent.voteNum2+1});
     return {code: 1, success: true}
   }
   // 结束表决
