@@ -17,4 +17,14 @@ export class UserController {
   getInMeetingUser(@Query() query: GetInMeetingUserType){
     return this.userService.getInMeetingUser(query)
   }
+
+  @Get('/handsUp')
+  handsUp(@Query() query: {nickName: string}){
+    return this.userService.handsUp(query)
+  }
+
+  @Get('/cancleHandsUp')
+  cancleHandsUp(@Query() query: {nickName: string}){
+    return this.userService.cancleHandsUp(query)
+  }
 }

@@ -18,4 +18,7 @@ export class User {
 
   @Column()
   isInMeeting: boolean // 是否进入会议
+
+  @Column()
+  isHandsUp: boolean // 是否举手
 }
