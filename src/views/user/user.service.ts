@@ -35,17 +35,17 @@ export class UserService {
   async handsUp (query: {nickName: string}){
     const queryArr = {nickName: query.nickName, identity: 2, isHandsUp: false}
     const user = await this.userRepository.findOne(queryArr)
-    if(!user) return {code: 0, success: false}
+    if(!user) return {code: 0, success: false, data: {msg: '举手失败'}}
     await this.userRepository.update(queryArr, {isHandsUp: true});
-    return {code: 1, success: true}
+    return {code: 1, success: true, data: {msg: '成功举手'}}
   }
 
   // 取消举手
   async cancleHandsUp(query: {nickName: string}) {
     const queryArr = {nickName: query.nickName, identity: 2, isHandsUp: true}
     const user = await this.userRepository.findOne(queryArr);
-    if(!user) return {code: 0, success: false}
+    if(!user) return {code: 0, success: false, data: {msg: '放下失败'}}
     await this.userRepository.update(queryArr, {isHandsUp: false});
-    return {code: 1, success: true}
+    return {code: 1, success: true, data: {msg: '成功放下'}}
   }
 }
